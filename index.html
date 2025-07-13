@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script>
+  document.documentElement.innerHTML = ""; // Clear everything first
+
+  const password = "awafi2025"; // Your secret password
+  const input = prompt("This preview is password-protected.\nPlease enter the password:");
+
+  if (input === password) {
+    // If password is correct, reload original content
+    location.reload();
+  } else {
+    document.write("<h1 style='text-align:center;margin-top:20%;color:#6F4E37;font-family:sans-serif;'>Access Denied</h1>");
+  }
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
