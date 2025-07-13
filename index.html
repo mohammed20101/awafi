@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script>
-  document.documentElement.innerHTML = ""; // Clear everything first
+   <div id="lock-screen" style="position:fixed;inset:0;z-index:9999;background:#f5f5f5;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+  <h2 style="color:#6F4E37;font-family:sans-serif;margin-bottom:20px;">Preview Locked</h2>
+  <input id="preview-password" type="password" placeholder="Enter Password" style="padding:10px;border:1px solid #ccc;border-radius:5px;">
+  <button onclick="checkPassword()" style="margin-top:10px;padding:10px 20px;background:#6F4E37;color:#fff;border:none;border-radius:5px;">Unlock</button>
+  <p id="error" style="color:red;margin-top:15px;display:none;">Incorrect password. Try again.</p>
+</div>
 
-  const password = "awafi2025"; // Your secret password
-  const input = prompt("This preview is password-protected.\nPlease enter the password:");
+<script>
+  function checkPassword() {
+    const password = "awafi2024"; // 🔑 Change this to your password
+    const input = document.getElementById("preview-password").value;
 
-  if (input === password) {
-    // If password is correct, reload original content
-    location.reload();
-  } else {
-    document.write("<h1 style='text-align:center;margin-top:20%;color:#6F4E37;font-family:sans-serif;'>Access Denied</h1>");
+    if (input === password) {
+      document.getElementById("lock-screen").remove(); // ✅ Unlock preview
+    } else {
+      document.getElementById("error").style.display = "block"; // ❌ Show error
+    }
   }
 </script>
 <head>
